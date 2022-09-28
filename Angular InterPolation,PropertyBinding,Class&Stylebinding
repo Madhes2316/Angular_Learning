@@ -1,0 +1,47 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: ` 
+              <h2>
+              Welcome {{name}}
+              </h2>   
+              <h2>{{name.length}}</h2>
+              <h2 class="test-success">{{greetUser()}}</h2>
+              <h2 [class]="css1">Madhes is the best</h2>
+              <h2 [class.text-danger]="hasError">Madhes is the best </h2>
+              <h2 [style.color]="'orange'">Madhes is the best</h2>
+              <h2 [ngStyle]="templateStyles">Madhes style binding</h2>
+              
+            `,
+  styles: [`
+  .test-success{
+    color:green
+  }
+  .text-danger{
+    color:red
+  }
+
+
+  `]
+})
+export class TestComponent implements OnInit {
+  public name="Daryl";
+  public myId="testId";
+  public css1="test-success";
+  public hasError=true;
+  public templateStyles={
+    color:"green",
+    fontStyle:"italic"
+  }
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  greetUser(){
+    return "Welcome "+this.name;
+  }
+
+}
