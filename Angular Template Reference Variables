@@ -1,0 +1,47 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: ` 
+            <input #userInput type="text"> <!--naming the input type  -->
+             <button (click)="onClick(userInput)">Click Here</button> <!-- using that name to call method/funtion-->
+            `,
+  styles: [``]
+})
+export class TestComponent implements OnInit {
+  public greeting="";
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  onClick(value:any){
+      console.log(value);   //printing the console line with the value from the click event
+  }
+  
+
+}
+<!----------------------------Type 2------------------------------------------------------------------------->
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: ` 
+            <input #userInput type="text"> <!--naming the input type  -->
+             <button (click)="onClick(userInput.value)">Click Here</button> <!-- using that name to call method/funtion this time with value-->
+            `,
+  styles: [``]
+})
+export class TestComponent implements OnInit {
+  public greeting="";
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  onClick(value:any){
+      console.log(value);   //printing the console line with the value from the click event
+  }
+  
+
+}
