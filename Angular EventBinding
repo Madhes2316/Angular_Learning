@@ -1,0 +1,74 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: ` 
+             <button (click)="onClick()">Click here</button>
+             {{greeting}} //interpolation
+            `,
+  styles: [``]
+})
+export class TestComponent implements OnInit {
+  public greeting=""; //empty string
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  onClick(){  //calling click event method/function
+    console.log("Welcome to angular");
+    this.greeting="Welcome to Angular";  //binding value to the greeting
+  }
+
+}
+----------Event Binding 2 with $event---------------
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: ` 
+             <button (click)="onClick($event)">Click here</button>
+             {{greeting}} 
+            `,
+  styles: [``]
+})
+export class TestComponent implements OnInit {
+  public greeting="";
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  onClick(event: any){
+    console.log("Welcome to angular");
+    this.greeting=event.type;
+  }
+
+}
+----------------------------Event binding 3-------------------------
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: ` 
+             <button (click)="onClick($event)">Click here</button> //getting values from method and showing values.
+             {{greeting}} 
+             <button (click)="greeting= 'Welcome Madhes'">Click here</button> //directing assing values to click event
+            `,
+  styles: [``]
+})
+export class TestComponent implements OnInit {
+  public greeting="";
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  onClick(event: any){  //to see what the event is 
+    console.log("Welcome to angular");
+    this.greeting=event.type; //we are seeing what the type of event it is
+  }
+
+}
+
+
