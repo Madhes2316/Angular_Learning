@@ -1,0 +1,25 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: ` 
+
+            <input [(ngModel)]="name" type="text"> //two way binding 
+            {{name}} //interpolation
+            
+            `,
+  styles: [``]
+})
+export class TestComponent implements OnInit {
+  public name=""; //empty string
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  
+  
+
+}
+
+//add FormsModule in app.module.ts->inside imports {}->it will automatically add a line at top
